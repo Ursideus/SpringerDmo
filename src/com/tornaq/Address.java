@@ -23,4 +23,8 @@ public class Address {
                 ", country='" + country + '\'' +
                 '}';
     }
+
+    public void init() {
+        System.out.println("Address bean created: " + this);
+    }
 }

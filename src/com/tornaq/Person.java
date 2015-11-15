@@ -62,10 +62,10 @@ public class Person {
     }
 
     public void onCreate() {
-        System.out.println("Person object created: " + this);
+        System.out.println("Person bean created: " + this);
     }
 
     public void onDestroyed() {
-        System.out.println("Person object destructed: " + this);
+        System.out.println("Person bean destructed: " + this);
     }
 }
