@@ -1,4 +1,4 @@
-package com.tornaq;
+package com.tornaq.person;
 
 /**
  * Created by dovw on 11/15/15.

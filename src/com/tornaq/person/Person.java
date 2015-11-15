@@ -1,4 +1,4 @@
-package com.tornaq;
+package com.tornaq.person;
 
 import org.springframework.stereotype.Component;
 

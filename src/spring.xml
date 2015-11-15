@@ -11,8 +11,7 @@
                 http://www.springframework.org/schema/context
                 http://www.springframework.org/schema/context/spring-context.xsd
                 http://www.springframework.org/schema/aop
-                http://www.springframework.org/schema/aop/spring-aop.xsd"
-        default-init-method="init" default-destroy-method="destroy">
+                http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:annotation-config></context:annotation-config>
 
@@ -23,41 +22,47 @@
     -->
 
     <!-- Destroy method not run on prototype scope beans -->
-    <bean id="person" class="com.tornaq.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy"
+
+<!--    <bean id="person" class="com.tornaq.person.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy"
             factory-method="getInstance">
         <constructor-arg index="0" name="id" type="int" value="1"></constructor-arg>
         <constructor-arg index="1" name="name" type="String" value="Mr. Smith"></constructor-arg>
         <property name="taxId" value="87654321">
-            <!--<value>87654321</value>-->
         </property>
         <property name="address" ref="default_address"></property>
     </bean>
 
-    <bean id="factoryperson" class="com.tornaq.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy"
+    <bean id="factoryperson" class="com.tornaq.person.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy"
           factory-bean="personfactory" factory-method="createPerson">
         <constructor-arg index="0" name="id" type="int" value="1"></constructor-arg>
         <constructor-arg index="1" name="name" type="String" value="Mr. Smith"></constructor-arg>
-        <property name="taxId" value="87654321">
-            <!--<value>87654321</value>-->
+        <property name="taxId" value="87654321">s
         </property>
         <property name="address" ref="default_address"></property>
     </bean>
 
-    <bean id="personfactory" class="com.tornaq.PersonFactory" scope="singleton"/>
+    <bean id="personfactory" class="com.tornaq.person.PersonFactory" scope="singleton"/>
 
-    <bean id="default_address" class="com.tornaq.Address" scope="singleton">
+    <bean id="default_address" class="com.tornaq.person.Address" scope="singleton">
         <constructor-arg index="0" name="street" type="String" value="1 Main st."></constructor-arg>
         <constructor-arg index="1" name="postalCode" type="String" value="852963"></constructor-arg>
         <constructor-arg index="2" name="country" type="String" value="US"></constructor-arg>
     </bean>
 
-    <bean id="property_address" class="com.tornaq.Address" scope="singleton"
+    <bean id="property_address" class="com.tornaq.person.Address" scope="singleton"
           p:street="100 Other st." p:postalCode="555666" p:country="Italy">
     </bean>
 
-    <bean id="constructor_address" class="com.tornaq.Address" scope="singleton"
+    <bean id="constructor_address" class="com.tornaq.person.Address" scope="singleton"
           c:street="2020 Ranblla st." c:postalCode="222111" c:country="Spain">
-    </bean>
+    </bean>-->
+    <bean id="logger" class="com.tornaq.logging.Logger" autowire="constructor" ></bean>
+
+    <bean id="filewriter" class="com.tornaq.logging.FileWriter" ></bean>
+
+    <bean id="consolewriter" class="com.tornaq.logging.ConsoleWriter"></bean>
+
+
 
     <!-- Enable AspectJ style of Spring AOP -->
     <!--
