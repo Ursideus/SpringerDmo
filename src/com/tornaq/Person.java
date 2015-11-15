@@ -19,6 +19,12 @@ public class Person {
         this.name = name;
     }
 
+    /// basic factory method
+    public static Person getInstance(int id, String name) {
+        System.out.println("Running person's factory method");
+        return new Person(id, name);
+    }
+
     public int getId() {
         return id;
     }

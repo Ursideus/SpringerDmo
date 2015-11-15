@@ -21,7 +21,8 @@
     -->
 
     <!-- Destroy method not run on prototype scope beans -->
-    <bean id="person" class="com.tornaq.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy">
+    <bean id="person" class="com.tornaq.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy"
+            factory-method="getInstance">
         <constructor-arg index="0" name="id" type="int" value="1"></constructor-arg>
         <constructor-arg index="1" name="name" type="String" value="Mr. Smith"></constructor-arg>
         <property name="taxId" value="87654321">
@@ -29,6 +30,18 @@
         </property>
         <property name="address" ref="default_address"></property>
     </bean>
+
+    <bean id="factoryperson" class="com.tornaq.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy"
+          factory-bean="personfactory" factory-method="createPerson">
+        <constructor-arg index="0" name="id" type="int" value="1"></constructor-arg>
+        <constructor-arg index="1" name="name" type="String" value="Mr. Smith"></constructor-arg>
+        <property name="taxId" value="87654321">
+            <!--<value>87654321</value>-->
+        </property>
+        <property name="address" ref="default_address"></property>
+    </bean>
+
+    <bean id="personfactory" class="com.tornaq.PersonFactory" scope="singleton"/>
 
     <bean id="default_address" class="com.tornaq.Address" scope="singleton">
         <constructor-arg index="0" name="street" type="String" value="1 Main st."></constructor-arg>

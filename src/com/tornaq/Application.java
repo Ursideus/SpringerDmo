@@ -17,6 +17,10 @@ public class Application {
         person.speak();
         System.out.println("Person's info: " + person.toString());
 
+        Person factoryperson = (Person) appContext.getBean("factoryperson");
+        factoryperson.speak();
+        System.out.println("Person's info: " + factoryperson.toString());
+
         /// close app context before exit
         ((ClassPathXmlApplicationContext)appContext).close();
 
