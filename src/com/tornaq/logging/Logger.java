@@ -8,6 +8,8 @@ public class Logger {
     private FileWriter fileWriter;
     private ConsoleWriter consoleWriter;
 
+    public Logger() {}
+
     public Logger(FileWriter fileWriter, ConsoleWriter consoleWriter) {
         this.fileWriter = fileWriter;
         this.consoleWriter = consoleWriter;
