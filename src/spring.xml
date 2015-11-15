@@ -18,7 +18,7 @@
         <context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
     </context:component-scan>
     -->
-    <bean id="person" class="com.tornaq.Person">
+    <bean id="person" class="com.tornaq.Person" scope="prototype">
         <constructor-arg index="0" name="id" type="int" value="1"></constructor-arg>
         <constructor-arg index="1" name="name" type="String" value="Mr. Smith"></constructor-arg>
         <property name="taxId" value="87654321">
@@ -27,7 +27,7 @@
         <property name="address" ref="default_address"></property>
     </bean>
 
-    <bean id="default_address" class="com.tornaq.Address">
+    <bean id="default_address" class="com.tornaq.Address" scope="singleton">
         <constructor-arg index="0" name="street" type="String" value="1 Main st."></constructor-arg>
         <constructor-arg index="1" name="postalCode" type="String" value="852963"></constructor-arg>
         <constructor-arg index="2" name="country" type="String" value="US"></constructor-arg>
