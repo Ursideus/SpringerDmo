@@ -17,12 +17,18 @@ public class Application {
         person.speak();
         System.out.println("Person's info: " + person.toString());
 
-        Person factoryperson = (Person) appContext.getBean("factoryperson");
+        Person factoryperson = (Person)appContext.getBean("factoryperson");
         factoryperson.speak();
         System.out.println("Person's info: " + factoryperson.toString());
 
+        Address propertyAddress = (Address)appContext.getBean("property_address");
+        System.out.println("Property address info: " + propertyAddress.toString());
+
+        Address constructorAddress = (Address)appContext.getBean("constructor_address");
+        System.out.println("Property address info: " + constructorAddress.toString());
+
         /// close app context before exit
-        ((ClassPathXmlApplicationContext)appContext).close();
+                ((ClassPathXmlApplicationContext) appContext).close();
 
     }
 

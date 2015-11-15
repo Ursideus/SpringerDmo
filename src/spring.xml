@@ -2,6 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="
                 http://www.springframework.org/schema/beans
@@ -47,6 +49,14 @@
         <constructor-arg index="0" name="street" type="String" value="1 Main st."></constructor-arg>
         <constructor-arg index="1" name="postalCode" type="String" value="852963"></constructor-arg>
         <constructor-arg index="2" name="country" type="String" value="US"></constructor-arg>
+    </bean>
+
+    <bean id="property_address" class="com.tornaq.Address" scope="singleton"
+          p:street="100 Other st." p:postalCode="555666" p:country="Italy">
+    </bean>
+
+    <bean id="constructor_address" class="com.tornaq.Address" scope="singleton"
+          c:street="2020 Ranblla st." c:postalCode="222111" c:country="Spain">
     </bean>
 
     <!-- Enable AspectJ style of Spring AOP -->
