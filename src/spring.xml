@@ -18,7 +18,9 @@
         <context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
     </context:component-scan>
     -->
-    <bean id="person" class="com.tornaq.Person" scope="prototype">
+
+    <!-- Destroy method not run on prototype scope beans -->
+    <bean id="person" class="com.tornaq.Person" scope="prototype" init-method="onCreate" destroy-method="onDestroy">
         <constructor-arg index="0" name="id" type="int" value="1"></constructor-arg>
         <constructor-arg index="1" name="name" type="String" value="Mr. Smith"></constructor-arg>
         <property name="taxId" value="87654321">

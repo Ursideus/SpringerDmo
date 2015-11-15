@@ -60,4 +60,12 @@ public class Person {
     public void speak() {
         System.out.println("I am a person");
     }
+
+    public void onCreate() {
+        System.out.println("Person object created: " + this);
+    }
+
+    public void onDestroyed() {
+        System.out.println("Person object destructed: " + this);
+    }
 }
