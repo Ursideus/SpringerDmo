@@ -1,8 +1,12 @@
 package com.tornaq.logging;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by dovw on 11/15/15.
  */
+
+@Component
 public class FileWriter implements LogWriter {
 
     @Override

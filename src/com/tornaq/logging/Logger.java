@@ -2,6 +2,7 @@ package com.tornaq.logging;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -12,6 +13,8 @@ import javax.inject.Named;
 /**
  * Created by dovw on 11/15/15.
  */
+
+@Component
 public class Logger {
 
     private FileWriter fileWriter;
@@ -30,7 +33,7 @@ public class Logger {
     }
 
     @Inject
-    @Named(value = "fileWriterNew")
+    //@Named(value = "fileWriterNew")
     public void setFileWriter(FileWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
@@ -40,7 +43,7 @@ public class Logger {
     }
 
     @Inject
-    @Named(value = "consoleWriterAlternative")
+    //@Named(value = "consoleWriterAlternative")
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }

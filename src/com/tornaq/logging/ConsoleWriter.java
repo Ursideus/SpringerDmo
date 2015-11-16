@@ -1,12 +1,13 @@
 package com.tornaq.logging;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by dovw on 11/15/15.
  */
 
-@Qualifier("defaultConsoleWriter")
+@Component
 public class ConsoleWriter implements LogWriter {
 
     @Override
