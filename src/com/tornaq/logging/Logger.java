@@ -3,6 +3,8 @@ package com.tornaq.logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.annotation.Resource;
+
 /**
  * Created by dovw on 11/15/15.
  */
@@ -22,8 +24,7 @@ public class Logger {
     public FileWriter getFileWriter() {
         return fileWriter;
     }
-    @Autowired
-    @Qualifier("defaultFileWriter")
+    @Resource(name="fileWriterNew")
     public void setFileWriter(FileWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
@@ -31,8 +32,7 @@ public class Logger {
     public ConsoleWriter getConsoleWriter() {
         return consoleWriter;
     }
-    @Autowired
-    @Qualifier("defaultConsoleWriter")
+    @Resource(name="consoleWriterWrong")
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }

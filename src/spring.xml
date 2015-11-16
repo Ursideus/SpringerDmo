@@ -63,9 +63,7 @@
 
     <bean id="fileWriter" class="com.tornaq.logging.FileWriter" ></bean>
 
-    <bean id="fileWriterNew" class="com.tornaq.logging.FileWriter" primary="true" >
-        <qualifier value="defaultFileWriter" ></qualifier>
-    </bean>
+    <bean id="fileWriterNew" class="com.tornaq.logging.FileWriter"></bean>
 
 
     <bean id="consoleWriter" class="com.tornaq.logging.ConsoleWriter"></bean>
