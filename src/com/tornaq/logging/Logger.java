@@ -1,5 +1,7 @@
 package com.tornaq.logging;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * Created by dovw on 11/15/15.
  */
@@ -18,7 +20,7 @@ public class Logger {
     public FileWriter getFileWriter() {
         return fileWriter;
     }
-
+    @Autowired
     public void setFileWriter(FileWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
@@ -26,7 +28,7 @@ public class Logger {
     public ConsoleWriter getConsoleWriter() {
         return consoleWriter;
     }
-
+    @Autowired
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }

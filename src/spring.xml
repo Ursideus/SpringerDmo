@@ -13,6 +13,7 @@
                 http://www.springframework.org/schema/aop
                 http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!-- Add annotation configuration -->
     <context:annotation-config></context:annotation-config>
 
     <!--
@@ -55,17 +56,19 @@
 
     <bean id="constructor_address" class="com.tornaq.person.Address" scope="singleton"
           c:street="2020 Ranblla st." c:postalCode="222111" c:country="Spain">
-    </bean>-->
-    <bean id="logger" class="com.tornaq.logging.Logger" autowire="byType" ></bean>
+    </bean>
+-->
+    <bean id="logger" class="com.tornaq.logging.Logger" ></bean>
+
 
     <bean id="fileWriter" class="com.tornaq.logging.FileWriter" ></bean>
 
-    <bean id="fileWriterNew" class="com.tornaq.logging.FileWriter" primary="true" ></bean>
+    <!--<bean id="fileWriterNew" class="com.tornaq.logging.FileWriter" primary="true" ></bean>-->
+
 
     <bean id="consoleWriter" class="com.tornaq.logging.ConsoleWriter"></bean>
 
-    <bean id="consoleWriterWrong" class="com.tornaq.logging.ConsoleWriter" autowire-candidate="false"></bean>
-
+    <!--<bean id="consoleWriterWrong" class="com.tornaq.logging.ConsoleWriter" autowire-candidate="false"></bean>-->
 
 
     <!-- Enable AspectJ style of Spring AOP -->
