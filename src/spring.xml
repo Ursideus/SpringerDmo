@@ -63,12 +63,14 @@
 
     <bean id="fileWriter" class="com.tornaq.logging.FileWriter" ></bean>
 
-    <!--<bean id="fileWriterNew" class="com.tornaq.logging.FileWriter" primary="true" ></bean>-->
+    <bean id="fileWriterNew" class="com.tornaq.logging.FileWriter" primary="true" >
+        <qualifier value="defaultFileWriter" ></qualifier>
+    </bean>
 
 
     <bean id="consoleWriter" class="com.tornaq.logging.ConsoleWriter"></bean>
 
-    <!--<bean id="consoleWriterWrong" class="com.tornaq.logging.ConsoleWriter" autowire-candidate="false"></bean>-->
+    <!--<bean id="consoleWriterWrong" class="com.tornaq.logging.ConsoleWriter"></bean>-->
 
 
     <!-- Enable AspectJ style of Spring AOP -->
