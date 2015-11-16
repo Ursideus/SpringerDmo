@@ -14,12 +14,21 @@
                 http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- Add annotation configuration -->
-    <context:annotation-config></context:annotation-config>
+    <!--<context:annotation-config></context:annotation-config>-->
 
 
-    <context:component-scan base-package="com.tornaq.logging">
-        <!--<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>-->
-    </context:component-scan>
+    <!--<context:component-scan base-package="com.tornaq.logging"></context:component-scan>-->
+
+    <bean id="robot" class="com.tornaq.robitics.Robot">
+        <!-- get property from bean method -->
+        <property name="id" value="#{randomId.getId()}"></property>
+        <!-- access getter getText() with prop name text ?. operator, access if not null-->
+        <property name="words" value="#{randomText?.text}"></property>
+    </bean>
+
+    <bean id="randomId" class="com.tornaq.robitics.RandomId"></bean>
+
+    <bean id="randomText" class="com.tornaq.robitics.RandomText"></bean>
 
 
     <!-- Destroy method not run on prototype scope beans -->
