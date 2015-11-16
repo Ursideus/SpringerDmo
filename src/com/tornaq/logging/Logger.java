@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * Created by dovw on 11/15/15.
@@ -26,7 +28,9 @@ public class Logger {
     public FileWriter getFileWriter() {
         return fileWriter;
     }
-    @Resource(name="fileWriterNew")
+
+    @Inject
+    @Named(value = "fileWriterNew")
     public void setFileWriter(FileWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
@@ -34,7 +38,9 @@ public class Logger {
     public ConsoleWriter getConsoleWriter() {
         return consoleWriter;
     }
-    @Resource(name="consoleWriterWrong")
+
+    @Inject
+    @Named(value = "consoleWriterAlternative")
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }
