@@ -3,6 +3,8 @@ package com.tornaq.logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 /**
@@ -40,5 +42,16 @@ public class Logger {
     public void log(String message) {
         fileWriter.log(message);
         consoleWriter.log(message);
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("Running init()");
+    }
+
+    @PreDestroy
+    // @PreDestroy, not applicable to spring prototype scope !!!
+    public void destroy() {
+        System.out.println("Running destroy()");
     }
 }
