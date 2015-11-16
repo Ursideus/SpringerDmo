@@ -1,5 +1,6 @@
 package com.tornaq.robitics;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,11 +13,11 @@ public class Robot {
     private String id = "DefaultID";
     private String words = "hello";
 
-    public void setId(String id) {
+    public void setId(@Value("${jdbc.username}") String id) {
         this.id = id;
     }
 
-    public void setWords(String words) {
+    public void setWords(@Value("${jdbc.password}") String words) {
         this.words = words;
     }
 

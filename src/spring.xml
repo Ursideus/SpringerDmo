@@ -23,8 +23,8 @@
 
 
     <bean id="robot" class="com.tornaq.robitics.Robot">
-        <property name="id" value="${jdbc.username}"></property>
-        <property name="words" value="${jdbc.password}"></property>
+        <!--<property name="id" value="${jdbc.username}"></property>-->
+        <!--<property name="words" value="${jdbc.password}"></property>-->
     </bean>
 
     <bean id="randomId" class="com.tornaq.robitics.RandomId"></bean>
