@@ -70,7 +70,7 @@
 
     <bean id="consoleWriter" class="com.tornaq.logging.ConsoleWriter"></bean>
 
-    <!--<bean id="consoleWriterWrong" class="com.tornaq.logging.ConsoleWriter"></bean>-->
+    <bean id="consoleWriterWrong" class="com.tornaq.logging.ConsoleWriter"></bean>
 
 
     <!-- Enable AspectJ style of Spring AOP -->

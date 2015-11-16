@@ -32,6 +32,7 @@ public class Logger {
         return consoleWriter;
     }
     @Autowired
+    @Qualifier("defaultConsoleWriter")
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }
