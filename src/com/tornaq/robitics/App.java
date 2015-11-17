@@ -26,6 +26,8 @@ public class App {
             System.out.println(offer);
         }
 
+        System.out.println("Got Offer by id: " + offerDao.getOffer(10));
+
         ((ClassPathXmlApplicationContext) appContext).close();
 
     }
