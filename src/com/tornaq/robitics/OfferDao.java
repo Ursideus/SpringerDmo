@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 
@@ -68,6 +70,7 @@ public class OfferDao {
         return jdbc.update("INSERT INTO OFFERS (ID, NAME, EMAIL, TEXT) VALUES (:id, :name, :email, :text)", sqlParamSource) == 1;
     }
 
+    @Transactional(isolation = Isolation.DEFAULT)
     public int[] create(List<Offer> offers) {
 
         SqlParameterSource[] sqlParams = SqlParameterSourceUtils. createBatch(offers.toArray());

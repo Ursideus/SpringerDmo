@@ -24,31 +24,37 @@ public class App {
 
         OfferDao offerDao = (OfferDao)appContext.getBean("offerDao");
 
-        System.out.println("Got Offer by id: " + offerDao.getOffer(10));
+        try {
+            System.out.println("Got Offer by id: " + offerDao.getOffer(10));
 
-        offerDao.delete(15);
-        offerDao.delete(21);
-        offerDao.delete(22);
+            offerDao.delete(15);
+            offerDao.delete(21);
+            offerDao.delete(22);
 
-        String currentTime = new SimpleDateFormat("h:mm a").format(new Date());
+            String currentTime = new SimpleDateFormat("h:mm a").format(new Date());
 
-        offerDao.updateOffer(11, "Extremely unbelievable offer: " + currentTime);
+            offerDao.updateOffer(11, "Extremely unbelievable offer: " + currentTime);
 
-        offerDao.create(new Offer(15, "Mr. No", "mr.no@email.com", "Simple offer text"));
+            offerDao.create(new Offer(15, "Mr. No", "mr.no@email.com", "Simple offer text"));
 
-        List<Offer> newOffers = new ArrayList<Offer>();
-        newOffers.add(new Offer(21, "Mr. Batch1", "mr.batch1@email.com", "Offer to Mr. Batch1"));
-        newOffers.add(new Offer(22, "Mr. Batch2", "mr.batch2@email.com", "Offer to Mr. Batch2"));
+            List<Offer> newOffers = new ArrayList<Offer>();
+            newOffers.add(new Offer(21, "Mr. Batch1", "mr.batch1@email.com", "Offer to Mr. Batch1"));
+            newOffers.add(new Offer(22, "Mr. Batch2", "mr.batch2@email.com", "Offer to Mr. Batch2"));
 
-        offerDao.create(newOffers);
+            offerDao.create(newOffers);
 
-        List<Offer> offers = offerDao.getOffers();
+            List<Offer> offers = offerDao.getOffers();
 
-        for (Offer offer: offers) {
-            System.out.println(offer);
+            for (Offer offer: offers) {
+                System.out.println(offer);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            ((ClassPathXmlApplicationContext) appContext).close();
         }
 
-        ((ClassPathXmlApplicationContext) appContext).close();
+
 
     }
 }
