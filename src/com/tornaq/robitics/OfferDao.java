@@ -45,7 +45,6 @@ public class OfferDao {
             }
         });
 
-
     }
 
     public List<Offer> getOffers() {
@@ -61,6 +60,15 @@ public class OfferDao {
                 return offer;
             }
         });
+
+    }
+
+    public boolean updateOffer(int id, String text) {
+
+        MapSqlParameterSource namedParamSource = new MapSqlParameterSource("id", id);
+        namedParamSource.addValue("text", text);
+
+        return jdbc.update("UPDATE OFFERS SET TEXT = :text WHERE ID = :id", namedParamSource) == 1;
 
     }
 }

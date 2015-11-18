@@ -4,6 +4,8 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,13 +22,18 @@ public class App {
         //BasicDataSource dataSource = (BasicDataSource)appContext.getBean("dataSource");
 
         OfferDao offerDao = (OfferDao)appContext.getBean("offerDao");
+
+        System.out.println("Got Offer by id: " + offerDao.getOffer(10));
+
+        String currentTime = new SimpleDateFormat("h:mm a").format(new Date());
+
+        offerDao.updateOffer(11, "Extremely unbelievable offer: " + currentTime);
+
         List<Offer> offers = offerDao.getOffers();
 
         for (Offer offer: offers) {
             System.out.println(offer);
         }
-
-        System.out.println("Got Offer by id: " + offerDao.getOffer(10));
 
         ((ClassPathXmlApplicationContext) appContext).close();
 
