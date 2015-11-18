@@ -3,6 +3,7 @@ package com.tornaq.robitics;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -63,12 +64,27 @@ public class OfferDao {
 
     }
 
+    public boolean create(Offer offer) {
+
+        BeanPropertySqlParameterSource sqlParamSource = new BeanPropertySqlParameterSource(offer);
+        return jdbc.update("INSERT INTO OFFERS (ID, NAME, EMAIL, TEXT) VALUES (:id, :name, :email, :text)", sqlParamSource) == 1;
+    }
+
+
     public boolean updateOffer(int id, String text) {
 
         MapSqlParameterSource namedParamSource = new MapSqlParameterSource("id", id);
         namedParamSource.addValue("text", text);
 
         return jdbc.update("UPDATE OFFERS SET TEXT = :text WHERE ID = :id", namedParamSource) == 1;
+    }
+
+    public boolean delete(int id) {
+
+        MapSqlParameterSource namedParamSource = new MapSqlParameterSource("id", id);
+
+        return jdbc.update("DELETE FROM OFFERS WHERE ID = :id", namedParamSource) == 1;
 
     }
+
 }

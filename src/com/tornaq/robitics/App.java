@@ -25,9 +25,13 @@ public class App {
 
         System.out.println("Got Offer by id: " + offerDao.getOffer(10));
 
+        offerDao.delete(15);
+
         String currentTime = new SimpleDateFormat("h:mm a").format(new Date());
 
         offerDao.updateOffer(11, "Extremely unbelievable offer: " + currentTime);
+
+        offerDao.create(new Offer(15, "Mr. No", "mr.no@email.com", "Simple offer text"));
 
         List<Offer> offers = offerDao.getOffers();
 
