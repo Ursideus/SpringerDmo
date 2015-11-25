@@ -1,8 +1,6 @@
-package com.tornaq;
+package com.ursideus;
 
-import com.tornaq.logging.Logger;
-import com.tornaq.person.Address;
-import com.tornaq.person.Person;
+import com.ursideus.logging.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

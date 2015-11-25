@@ -1,4 +1,4 @@
-package com.tornaq.person;
+package com.ursideus.person;
 
 /**
  * Created by dovw on 11/15/15.

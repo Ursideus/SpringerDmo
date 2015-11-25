@@ -1,14 +1,10 @@
-package com.tornaq.logging;
+package com.ursideus.logging;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 /**
  * Created by dovw on 11/15/15.

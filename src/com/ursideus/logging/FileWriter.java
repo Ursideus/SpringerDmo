@@ -1,4 +1,4 @@
-package com.tornaq.logging;
+package com.ursideus.logging;
 
 import org.springframework.stereotype.Component;
 

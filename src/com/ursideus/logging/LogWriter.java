@@ -1,4 +1,4 @@
-package com.tornaq.logging;
+package com.ursideus.logging;
 
 /**
  * Created by dovw on 11/15/15.
